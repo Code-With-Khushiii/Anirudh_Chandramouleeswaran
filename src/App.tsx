@@ -181,7 +181,8 @@ function App() {
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex-1 min-w-0 pr-4 text-lg sm:text-xl md:text-2xl font-display text-black tracking-wide leading-tight truncate">
-              ANIRUDH CHANDRAMOULEESWARAN
+              <span className="md:hidden">ANIRUDH</span>
+              <span className="hidden md:inline">ANIRUDH CHANDRAMOULEESWARAN</span>
             </div>
             <div className="hidden md:flex space-x-8">
               {navItems.map((item) => (
