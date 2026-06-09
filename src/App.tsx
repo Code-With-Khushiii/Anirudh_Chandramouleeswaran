@@ -180,11 +180,11 @@ function App() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-cream/95 backdrop-blur-md border-b border-brown/20">
         <div className="max-w-6xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex-1 min-w-0 pr-4 text-lg sm:text-xl md:text-2xl font-display text-black tracking-wide leading-tight truncate">
+            <div className="flex-1 md:flex-none min-w-0 pr-4 md:pr-0 text-lg sm:text-xl md:text-2xl font-display text-black tracking-wide leading-tight truncate">
               <span className="md:hidden">ANIRUDH</span>
               <span className="hidden md:inline">ANIRUDH CHANDRAMOULEESWARAN</span>
             </div>
-            <div className="hidden md:flex space-x-8">
+            <div className="hidden md:flex items-center justify-end gap-5 lg:gap-8 flex-shrink-0">
               {navItems.map((item) => (
                 <button
                   key={item.id}
