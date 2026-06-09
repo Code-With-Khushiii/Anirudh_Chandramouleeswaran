@@ -182,7 +182,7 @@ function App() {
           <div className="flex items-center justify-between">
             <div className="flex-1 md:flex-none min-w-0 pr-4 md:pr-0 text-lg sm:text-xl md:text-2xl font-display text-black tracking-wide leading-tight truncate">
               <span className="md:hidden">ANIRUDH</span>
-              <span className="hidden md:inline">ANIRUDH CHANDRAMOULEESWARAN</span>
+              <span className="hidden md:inline">ANIRUDH</span>
             </div>
             <div className="hidden md:flex items-center justify-end gap-5 lg:gap-8 flex-shrink-0">
               {navItems.map((item) => (
