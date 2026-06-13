@@ -47,6 +47,32 @@ function App() {
 
   const projects = [
     {
+      title: "FinScope – Personal FP&A & Market Analytics Platform",
+      subtitle: "Python, SQL, Streamlit",
+      category: "FP&A Platform",
+      introduction: "Built and deployed a full-stack FP&A web platform automating budget vs. actuals variance analysis with auto-generated driver commentary, three-statement reporting, and one-click formatted Excel variance reports, backed by a SQL transaction pipeline with 98% rule-based categorization accuracy.",
+      problem: "Finance teams and individuals lack accessible, production-grade tools for automated variance analysis, multi-model forecasting, Monte Carlo planning, and integrated public company financial analysis.",
+      objective: "Build a deployable FP&A platform with automated variance reporting, champion/challenger forecasting, Monte Carlo simulation, and SEC EDGAR financial filing analysis.",
+      methodology: [
+        "Built a SQL transaction pipeline with 98% rule-based categorization accuracy and one-click formatted Excel variance export with auto-generated driver commentary.",
+        "Implemented champion/challenger forecasting that backtests four models on holdout data and auto-selects the winner (6.7% vs. 9.9% baseline MAPE).",
+        "Engineered a 10,000-path Monte Carlo planning engine driven by live S&P 500 returns and FRED inflation data.",
+        "Integrated the SEC EDGAR API to analyze real 10-Q/10-K filings for any US public company, resolving XBRL tag inconsistencies and deriving Q4 from fiscal-year totals.",
+        "Shipped with 17 pytest tests and GitHub Actions CI pipeline."
+      ],
+      results: [
+        "Deployed a full-stack FP&A platform with three-statement reporting and automated budget vs. actuals variance analysis.",
+        "Champion/challenger forecasting achieved 6.7% MAPE vs. 9.9% baseline through model backtesting and auto-selection.",
+        "Monte Carlo engine generates 10,000 planning paths using live market and inflation data.",
+        "SEC EDGAR integration enables real financial filing analysis for any US public company."
+      ],
+      conclusion: "FinScope demonstrates end-to-end FP&A platform development, integrating financial modeling, forecasting, Monte Carlo simulation, and public company analysis into a production-ready analytics product.",
+      links: {
+        demo: "",
+        github: ""
+      }
+    },
+    {
       title: "Credit Card Debt Risk & Consumer Behavior Analytics",
       subtitle: "Python",
       category: "Risk Analytics",
@@ -63,7 +89,8 @@ function App() {
         "Uncovered psychological factors influencing credit card usage and repayment behavior.",
         "Generated insights into consumer overspending and financial decision-making."
       ],
-      conclusion: "The project connected consumer behavior analytics with credit card debt risk segmentation."
+      conclusion: "The project connected consumer behavior analytics with credit card debt risk segmentation.",
+      links: null
     },
     {
       title: "Retail Profitability Prediction & Deployment Automation",
@@ -82,7 +109,8 @@ function App() {
         "Flagged 81.1% unprofitable orders for managerial review.",
         "Improved model accuracy and data quality through structured preprocessing."
       ],
-      conclusion: "The project demonstrated predictive modeling, data cleaning, and deployment-oriented automation for retail profitability decisions."
+      conclusion: "The project demonstrated predictive modeling, data cleaning, and deployment-oriented automation for retail profitability decisions.",
+      links: null
     }
   ];
 
@@ -324,7 +352,7 @@ function App() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-display text-black mb-8 tracking-wide leading-tight break-words">PROJECTS</h2>
             <div className="w-16 h-0.5 bg-brown mx-auto mb-8"></div>
             <p className="text-lg text-brown max-w-2xl mx-auto font-light">
-              Consumer behavior analytics, credit risk patterns, profitability prediction, and deployment automation projects.
+              Full-stack FP&A platforms, consumer behavior analytics, credit risk modeling, and profitability prediction projects.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
@@ -336,6 +364,20 @@ function App() {
                 <h3 className="text-xl font-display text-black mb-3 tracking-wide leading-tight">{project.title}</h3>
                 <p className="text-sm text-brown mb-4 font-light">{project.subtitle}</p>
                 <p className="text-brown leading-relaxed font-light text-sm line-clamp-3">{project.introduction}</p>
+                {project.links && (project.links.demo || project.links.github) && (
+                  <div className="flex gap-4 mt-4" onClick={e => e.stopPropagation()}>
+                    {project.links.demo && (
+                      <a href={project.links.demo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-xs text-black font-medium hover:text-brown transition-colors">
+                        <ExternalLink className="w-3 h-3" /> Live Demo
+                      </a>
+                    )}
+                    {project.links.github && (
+                      <a href={project.links.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1 text-xs text-black font-medium hover:text-brown transition-colors">
+                        <ExternalLink className="w-3 h-3" /> GitHub
+                      </a>
+                    )}
+                  </div>
+                )}
               </div>
             ))}
           </div>
@@ -355,6 +397,20 @@ function App() {
               <div>
                 <span className="text-sm font-medium text-brown bg-cream px-3 py-1 tracking-wide">{projects[selectedProject].category}</span>
                 <p className="text-brown font-light mt-2">{projects[selectedProject].subtitle}</p>
+                {projects[selectedProject].links && (projects[selectedProject].links.demo || projects[selectedProject].links.github) && (
+                  <div className="flex gap-4 mt-3">
+                    {projects[selectedProject].links.demo && (
+                      <a href={projects[selectedProject].links.demo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-black font-medium hover:text-brown transition-colors">
+                        <ExternalLink className="w-4 h-4" /> Live Demo
+                      </a>
+                    )}
+                    {projects[selectedProject].links.github && (
+                      <a href={projects[selectedProject].links.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-black font-medium hover:text-brown transition-colors">
+                        <ExternalLink className="w-4 h-4" /> GitHub
+                      </a>
+                    )}
+                  </div>
+                )}
               </div>
               {[
                 ['INTRODUCTION', projects[selectedProject].introduction],
